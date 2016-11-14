@@ -1,0 +1,107 @@
+using System;
+using Android.App;
+using Android.Content;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using Android.OS;
+
+namespace AssetRandomizationApp
+{
+    [Activity(Label = "AssetRandomizationApp", MainLauncher = true, Icon = "@drawable/icon")]
+    public class MainActivity : Activity
+    {
+        int count = 1;
+
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
+
+            // Set our view from the "main" layout resource
+            SetContentView(Resource.Layout.Main);
+        }
+
+
+
+        DateTime eachMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+        DateTime secondWeek = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 7);
+        DateTime thirdWeek = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 14);
+        DateTime fourthWeek = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 21);
+        DateTime anyDay = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 0, 0, 0);
+
+        public void setBackground(int bChoice)
+        {
+            DateTime now = DateTime.Now.ToLocalTime();
+            switch (bChoice)
+            {
+                case 2:
+                    if (eachMonth.Equals(now))
+                    {
+
+                    }
+                    break;
+                case 3:
+                    if (eachMonth.Equals(now) || secondWeek.Equals(now) || thirdWeek.Equals(now) || fourthWeek.Equals(now))
+                    {
+
+                    }
+                    break;
+                case 4:
+                    if (anyDay.Equals(now))
+                    {
+
+                    }
+                    break;
+                case 5:
+                    break;
+            }
+
+        }
+        public void setRingtone(int rChoice)
+        {
+            DateTime now = DateTime.Now.ToLocalTime();
+            switch (rChoice)
+            {
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+            }
+        }
+        public void setAlert(int aChoice)
+        {
+            DateTime now = DateTime.Now.ToLocalTime();
+            switch (aChoice)
+            {
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+            }
+        }
+        public void getBackgroundSetting()
+        {
+            RadioGroup backgrounds = FindViewById<RadioGroup>(Resource.Id.radioGroup1);
+
+        }
+        public void getRingtoneSetting()
+        {
+            RadioGroup ringtones = FindViewById<RadioGroup>(Resource.Id.radioGroup2);
+        }
+        public void getAlertSetting()
+        {
+            RadioGroup alerts = FindViewById<RadioGroup>(Resource.Id.radioGroup3);
+        }
+
+    }
+    }
+
+
